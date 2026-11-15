@@ -66,7 +66,7 @@ App 1.0.0. Config form 1.0, Checks 1.0, Preview 1.0, Draft files 1.0, Comparing 
 ## Not yet tried for real
 
 - **Signing in with a real account.** The team's page ran against ArcGIS Online's answers played back by the test. Checked against ArcGIS Online itself: it accepts the token in the `X-Esri-Authorization` header from this site (CORS allows it), and the usage call's parameters are Esri's own. The first real sign-in is the test of the rest.
-- **That an opening of a partner's app is counted as a view of its item.** The evidence: a test map used only by AtlasLab's tests has 1,488 views in four days, so ArcGIS Online counts reads from AtlasLab, off arcgis.com. Requests from a script here didn't show in the counts within ten minutes (they seem to be counted in batches). To confirm: note a new partner's views, open its app a few times, look again the next day.
+- **That an opening of a partner's app is counted as a view of its item, for an app item.** Checked on a web map (15 Nov 2026): five reads of its data from a script, off arcgis.com, added exactly five views, counted within the hour; six reads of the item's details added none. A test map used only by AtlasLab's tests also has 1,488 views in four days. A partner's item is a Web Mapping Application, not a web map, so to confirm: note a new partner's views, open its app a few times, look again an hour later.
 - **The manager's own reads count too** (a few views a visit), and so do the team's checks of a partner before it is live.
 - **Renaming and rearranging toolbar tools**, which some distributors asked for: renaming works through Wording; AtlasLab has no setting for the order of its tools.
 
