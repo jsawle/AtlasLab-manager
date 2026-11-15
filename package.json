@@ -1,0 +1,10 @@
+{
+  "name": "atlaslab-manager",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The education team's manager for partners' versions of AtlasLab",
+  "scripts": {
+    "test": "node tests/tools.test.mjs && node tests/structure.test.mjs"
+  }
+}

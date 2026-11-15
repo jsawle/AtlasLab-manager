@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src https://www.arcgis.com https://jsawle.github.io; frame-src https://jsawle.github.io; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <title>AtlasLab partner settings</title>
+  <link rel="stylesheet" href="css/manager.css?v=1.0.0" />
+  <script type="module" src="js/form.js?v=1.0.0"></script>
+</head>
+<body>
+  <a class="skip" href="#editor">Skip to the settings</a>
+  <header class="top">
+    <h1>AtlasLab partner settings</h1>
+    <span class="spacer"></span>
+    <button type="button" class="btn small versions-btn" id="versionsBtn">Versions</button>
+  </header>
+  <div id="status" class="status" role="status" hidden></div>
+  <main>
+    <section class="intro" aria-labelledby="intro-h">
+      <h2 id="intro-h" class="visually-hidden">About this form</h2>
+      <p>Change your programme's version of AtlasLab here and check it in the preview. When it looks right, <strong>save a draft file</strong> and put it in your channel in Teams. The education team checks it and publishes it.</p>
+      <p class="hint">Nothing you type is sent anywhere. The form only asks ArcGIS Online whether the groups you name exist and are public, and the preview runs AtlasLab inside this page.</p>
+    </section>
+    <div class="panel">
+      <h2>Start</h2>
+      <div class="actions">
+        <label class="btn">Open a draft file…<input type="file" id="draftFile" accept=".json,application/json" class="visually-hidden" /></label>
+        <button type="button" class="btn" id="newBtn">Start a new one</button>
+        <span class="hint" id="startedFrom"></span>
+      </div>
+      <div class="field"><label for="partner">Programme or partner</label><p class="hint" id="partner-hint">For example “Esri Panamá — Mapas Escolares”.</p><input type="text" id="partner" aria-describedby="partner-hint" autocomplete="organization" /></div>
+      <div class="field"><label for="notes">Notes for the education team (optional)</label><textarea id="notes" rows="2"></textarea></div>
+    </div>
+    <div class="layout">
+      <form id="editor" aria-label="Settings" novalidate></form>
+      <aside class="side" aria-label="Checks and preview">
+        <section class="panel" id="checks"></section>
+        <section class="panel"><h2>Preview</h2><div id="preview"></div></section>
+        <section class="panel">
+          <h2>Save</h2>
+          <p class="hint">Saves a draft file to your computer. Put it in your Teams channel and tell the education team it's there.</p>
+          <button type="button" class="btn primary" id="saveBtn">Save draft file</button>
+        </section>
+      </aside>
+    </div>
+  </main>
+  <div class="credit">Created by Jason Sawle</div>
+</body>
+</html>

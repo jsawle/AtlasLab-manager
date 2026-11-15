@@ -1,0 +1,35 @@
+# Unit tests, and the browser tests against the AtlasLab of the moment (its main branch), on every pull request and push.
+# The site itself is served by GitHub Pages from main (Settings > Pages > Deploy from a branch: main, / (root)).
+name: Tests
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: jsawle/AtlasLab
+          path: atlaslab
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install playwright==1.63.0 && python -m playwright install --with-deps chromium
+      - run: npm install --no-save --prefix "$RUNNER_TEMP/axe" axe-core@4.14.0
+      - name: Form, preview and the team's page (with ArcGIS Online's answers played back)
+        run: python tests/live.py --atlaslab atlaslab --axe "$RUNNER_TEMP/axe/node_modules/axe-core/axe.min.js"

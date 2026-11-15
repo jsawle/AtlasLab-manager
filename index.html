@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https://www.arcgis.com; connect-src https://www.arcgis.com https://jsawle.github.io; frame-src https://jsawle.github.io; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="noindex" />
+  <title>AtlasLab manager</title>
+  <link rel="stylesheet" href="css/manager.css?v=1.0.0" />
+  <script type="module" src="js/team.js?v=1.0.0"></script>
+</head>
+<body>
+  <a class="skip" href="#app">Skip to the main content</a>
+  <header class="top">
+    <h1>AtlasLab manager</h1>
+    <span class="spacer"></span>
+    <span class="who" id="who"></span>
+    <button type="button" class="btn small" id="signOutBtn" hidden>Sign out</button>
+    <button type="button" class="btn small versions-btn" id="versionsBtn">Versions</button>
+  </header>
+  <div id="status" class="status" role="status" hidden></div>
+  <main id="app" tabindex="-1"></main>
+  <div class="credit">Created by Jason Sawle</div>
+</body>
+</html>
