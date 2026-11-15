@@ -8,9 +8,10 @@ export const SETTINGS = {
   // the organization that owns the partners' config items, and share every item with it, so any member can publish.
   // Empty: any signed-in member of an organization in partnerOrgs gets in (a notice says so).
   teamGroup: "",
-  // Organizations whose config items AtlasLab accepts (PARTNER_ORGS in AtlasLab's src/config.js; keep the two the same).
-  partnerOrgs: ["iFGeGXTAJXnjq0YN", "HNLEA4GfnbCFQZGa"],
-  orgNames: { iFGeGXTAJXnjq0YN: "MapMaker", HNLEA4GfnbCFQZGa: "GIS 4 Schools (testing)" },
+  // The organization the partners' config items are kept in: GIS 4 Schools (gis-4-schools.maps.arcgis.com), not the
+  // MapMaker organization. AtlasLab accepts items from these only (PARTNER_ORGS in its src/config.js; keep the two the same).
+  partnerOrgs: ["HNLEA4GfnbCFQZGa"],
+  orgNames: { HNLEA4GfnbCFQZGa: "GIS 4 Schools" },
   // The published AtlasLab. Partner apps open at <atlasUrl>?appid=<item ID>; the preview frames <atlasUrl>?preview=1.
   atlasUrl: "https://jsawle.github.io/AtlasLab/",
   // AtlasLab's own sign-in client ID: a partner config that allows signing in uses this one, which is registered for atlasUrl.

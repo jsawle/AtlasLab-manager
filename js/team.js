@@ -28,7 +28,7 @@ async function startUp() {
   $("signOutBtn").hidden = false;
   const inTeam = SETTINGS.teamGroup ? (user.groups || []).some((g) => g.id === SETTINGS.teamGroup) : SETTINGS.partnerOrgs.includes(user.orgId);
   if (!inTeam) return showDenied();
-  if (!SETTINGS.teamGroup) say("No team group is set in js/settings.js yet, so any member of the MapMaker or GIS 4 Schools organization can use this page.", "warn");
+  if (!SETTINGS.teamGroup) say("No team group is set in js/settings.js yet, so any member of " + SETTINGS.partnerOrgs.map((o) => SETTINGS.orgNames[o] || o).join(" or ") + " can use this page.", "warn");
   showPartners();
 }
 $("signOutBtn").addEventListener("click", () => { signOut(); user = null; $("who").textContent = ""; $("signOutBtn").hidden = true; showSignIn("Signed out."); });

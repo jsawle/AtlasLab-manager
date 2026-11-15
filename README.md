@@ -9,7 +9,7 @@ The education team's tool for partners' versions of [AtlasLab](https://github.co
 
 ## How a partner's version works
 
-- **The config lives in an ArcGIS Online item**, one per partner, owned by the education team. The partner's app is `https://jsawle.github.io/AtlasLab/?appid=<item ID>`. AtlasLab (5.0.0-beta.58 or later) only accepts public items of the MapMaker or GIS 4 Schools organizations marked `AtlasLabPartnerConfig`, so nobody else can dress the app in their own name, links and content.
+- **The config lives in an ArcGIS Online item**, one per partner, owned by the education team. The partner's app is `https://jsawle.github.io/AtlasLab/?appid=<item ID>`. The items are kept in GIS 4 Schools (`gis-4-schools.maps.arcgis.com`), not the MapMaker organization. AtlasLab (5.0.0-beta.61 or later) only accepts public items of GIS 4 Schools marked `AtlasLabPartnerConfig`, so nobody else can dress the app in their own name, links and content.
 - **What's in it** is what students see anyway: the name, logo, colours, language, content group, start view, units, links, notices, which tools are on and any wording of their own. Nothing secret, no contacts, no notes. Anyone who opens a live partner's app can read it, just as MapMaker's own config is public today.
 - **What stays private**: a partner before it goes live, the team's notes on each partner, and the record of who published what (one private "register" item), and drafts, which go back and forth through the partner's Teams channel.
 
@@ -38,7 +38,7 @@ Splitting map views by partner would need AtlasLab to report each opening to a s
 ## Setting it up (once)
 
 1. **Sign-in**: add `https://jsawle.github.io/AtlasLab-manager/` as a redirect URI of the app registration in `js/settings.js` (`clientId`, now AtlasLab's own `MUSDSIajsXZwJeZQ`).
-2. **Team group**: make a **shared-update** group in the organization that will own the partners' items (MapMaker), add the team, and put its ID in `teamGroup`. Until then any member of the MapMaker or GIS 4 Schools organization gets in, with a notice. New partners are shared with the group, so any member can publish; only the item's owner or an administrator can make a partner live or take it offline.
+2. **Team group**: make a **shared-update** group in GIS 4 Schools, add the team, and put its ID in `teamGroup`. Until then any member of GIS 4 Schools gets in, with a notice. New partners are shared with the group, so any member can publish; only the item's owner or an administrator can make a partner live or take it offline.
 3. **GitHub Pages**: Settings > Pages > Deploy from a branch: `main`, `/ (root)`.
 4. **Organizations**: `partnerOrgs` here and `PARTNER_ORGS` in AtlasLab's `src/config.js` must list the same organizations.
 
@@ -50,7 +50,7 @@ Splitting map views by partner would need AtlasLab to report each opening to a s
 node tools/sync-atlaslab.mjs ../AtlasLab
 ```
 
-Run it when AtlasLab changes its defaults, wording or languages. The Versions window shows which AtlasLab version it came from (now 5.0.0-beta.58).
+Run it when AtlasLab changes its defaults, wording or languages. The Versions window shows which AtlasLab version it came from (now 5.0.0-beta.61).
 
 When AtlasLab moves host, its new address goes in `atlasUrl` here and in the pages' `frame-src` and `connect-src`; the manager's address goes in AtlasLab's `PREVIEW_ORIGINS`, and a `frame-ancestors` header there must allow it.
 

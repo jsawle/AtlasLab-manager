@@ -131,7 +131,7 @@ def form_tests(browser, a, check, axe):
 
 class FakeArcGIS:
     """ArcGIS Online's answers for a signed-in team member, kept in memory: items, their data, sharing, usage."""
-    ORG = "iFGeGXTAJXnjq0YN"
+    ORG = "HNLEA4GfnbCFQZGa"   # GIS 4 Schools
     def __init__(self, org=None):
         self.org = org or self.ORG
         self.items, self.data, self.calls, self.n = {}, {}, [], 0
@@ -188,9 +188,9 @@ def team_page(browser, a, fake):
 
 def team_tests(browser, a, check, axe):
     # not in the team: refused
-    ctx, page = team_page(browser, a, FakeArcGIS(org="someOtherOrg0001"))
+    ctx, page = team_page(browser, a, FakeArcGIS(org="iFGeGXTAJXnjq0YN"))
     page.wait_for_selector("text=Not for this account")
-    check(True, "a member of another organization is turned away")
+    check(True, "a member of another organization (here MapMaker's) is turned away")
     ctx.close()
 
     fake = FakeArcGIS()
